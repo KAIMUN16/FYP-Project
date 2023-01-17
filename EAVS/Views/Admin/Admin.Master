@@ -1,0 +1,217 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="EAVS.Views.Admin.Admin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>EAVS System Admin Site</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"/>
+    <link rel="stylesheet" href="admin.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="icon" type="image/x-icon" href="../../Asset/img/faviconTAR.ico"/>
+
+    <style>
+        *{
+            font-family:Poppins;
+        }
+        #leftNav{
+            color:white;
+            height:695px;
+            background-color:red;
+        }
+        label{
+            color:white;
+        }
+        h1{
+            color:steelblue;
+            
+        }
+        i h6{
+            color:blue;
+        }
+        a .logout:hover
+        {
+            background-color:darkblue;
+        }
+    </style>
+
+    
+    <link href="../../Asset/css/bootstrap.min.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    
+        <nav class="sidebar close">
+        <header>
+            <div class="image-text" title="TARUMT Logo">
+                <span class="image">
+                    <a href="AdminDashboard.aspx"><img src="../../Asset/img/tarucLOGO.png"></a>
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name" style="color:darkblue;">EAVS</span>
+                    <!--<span class="profession">Admin Side</span>-->
+                    <span style="font-size:15px;">Hey!</span><asp:Label ID="showName" runat="server" Text="name" Font-Bold="true" style="font-size:15px;"></asp:Label>
+                    <!--Show what time now-->
+                    <h6 id="time" title="Time now"></h6>
+                    <a href="Logout.aspx" class="btn btn-default btn-flat" id="logout" style="color:darkblue;" title="Logout">Log out</a>
+                </div>
+            </div>
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                
+                <ul class="menu-links">
+                    <li class="nav-link" title="Homepage">
+                        <a href="AdminDashboard.aspx">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="text nav-text">Home</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link" title="Standard page">
+                        <a href="Standard.aspx">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="text nav-text">Standard</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link" title="Faculty page">
+                        <a href="Faculty.aspx">
+                            <i class='bx bx-bell icon'></i>
+                            <span class="text nav-text">Faculty</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link" title="Staff page">
+                        <a href="AddStaff.aspx">
+                            <i class='bx bx-bell icon'></i>
+                            <span class="text nav-text">Staff</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link" title="Add course page">
+                        <a href="AddCourse.aspx">
+                            <i class='bx bx-heart icon' ></i>
+                            <span class="text nav-text">Course</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link" title="Exam hall page">
+                        <a href="AddHall.aspx">
+                            <i class='bx bx-heart icon' ></i>
+                            <span class="text nav-text">Exam Hall</span>
+                        </a>
+                    </li>
+
+                    <!--
+                    <li class="nav-link" title="View leave page">
+                        <a href="#">
+                            <i class='bx bx-pie-chart-alt icon'></i>
+                            <span class="text nav-text">Leave</span>
+                        </a>
+                    </li>
+                    -->
+
+                    <li class="nav-link" title="View class page">
+                        <a href="ViewClass.aspx">
+                            <i class='bx bx-pie-chart-alt icon'></i>
+                            <span class="text nav-text">Class</span>
+                        </a>
+                    </li>
+
+                    <!--
+                    <li class="nav-link" title="View student page">
+                        <a href="ViewStudent.aspx">
+                            <i class='bx bx-pie-chart-alt icon'></i>
+                            <span class="text nav-text">Student</span>
+                        </a>
+                    </li>
+                    -->
+
+                    <li class="nav-link" title="View Overall page">
+                        <a href="MasterViewPage.aspx">
+                            <i class='bx bx-pie-chart-alt icon'></i>
+                            <span class="text nav-text">Print</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link" title="My profile page">
+                        <a href="AdminProfile.aspx">
+                            <i class='bx bx-user icon' ></i>
+                            <span class="text nav-text">Profile</span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="bottom-content">
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </div>
+
+        </div>
+
+        <script>
+            const body = document.querySelector('body'),
+                sidebar = body.querySelector('nav'),
+                toggle = body.querySelector(".toggle"),
+                searchBtn = body.querySelector(".search-box"),
+                modeSwitch = body.querySelector(".toggle-switch"),
+                modeText = body.querySelector(".mode-text");
+
+
+            toggle.addEventListener("click", () => {
+                sidebar.classList.toggle("close");
+            })
+
+            searchBtn.addEventListener("click", () => {
+                sidebar.classList.remove("close");
+            })
+
+            modeSwitch.addEventListener("click", () => {
+                body.classList.toggle("dark");
+
+                if (body.classList.contains("dark")) {
+                    modeText.innerText = "Light mode";
+                } else {
+                    modeText.innerText = "Dark mode";
+
+                }
+            });
+        </script>
+
+        <script>
+            setInterval((() => time.innerText = new Date().toLocaleTimeString()), 1000)
+
+        </script>
+
+    </nav>
+
+    <section class="home">
+        <div class="text">
+            <form id="form1" runat="server" autocomplete="off">
+                <div>
+                    <asp:ContentPlaceHolder ID="AdminContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </form>
+        </div>
+    </section>
+    
+    
+</body>
+</html>

@@ -1,0 +1,548 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6C6B2810-1C71-4678-9431-4BE8B940836E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EAVS</RootNamespace>
+    <AssemblyName>EAVS</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44313</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="itextsharp, Version=5.4.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Downloads\itextsharp\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa, Version=5.4.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Downloads\itextsharp\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AboutUs.aspx" />
+    <Content Include="AdminLogin.aspx" />
+    <Content Include="App_Data\EavsDB.mdf" />
+    <Content Include="App_Data\EavsDB_log.ldf">
+      <DependentUpon>EavsDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="Asset\css\bootstrap-grid.css" />
+    <Content Include="Asset\css\bootstrap-grid.min.css" />
+    <Content Include="Asset\css\bootstrap-grid.rtl.css" />
+    <Content Include="Asset\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="Asset\css\bootstrap-reboot.css" />
+    <Content Include="Asset\css\bootstrap-reboot.min.css" />
+    <Content Include="Asset\css\bootstrap-reboot.rtl.css" />
+    <Content Include="Asset\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Asset\css\bootstrap-utilities.css" />
+    <Content Include="Asset\css\bootstrap-utilities.min.css" />
+    <Content Include="Asset\css\bootstrap-utilities.rtl.css" />
+    <Content Include="Asset\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Asset\css\bootstrap.css" />
+    <Content Include="Asset\css\bootstrap.min.css" />
+    <Content Include="Asset\css\bootstrap.rtl.css" />
+    <Content Include="Asset\css\bootstrap.rtl.min.css" />
+    <Content Include="Asset\css\slideshow.css" />
+    <Content Include="Asset\img\admLogBACK.jpg" />
+    <Content Include="Asset\img\avatar.png" />
+    <Content Include="Asset\img\calendar.png" />
+    <Content Include="Asset\img\companyLOGO.jpg" />
+    <Content Include="Asset\img\companyLOGO2.png" />
+    <Content Include="Asset\img\exclamationmark.png" />
+    <Content Include="Asset\img\eye-close.png" />
+    <Content Include="Asset\img\eye-open.png" />
+    <Content Include="Asset\img\faviconTAR.ico" />
+    <Content Include="Asset\img\loginBg.jpg" />
+    <Content Include="Asset\img\loginBg1.jpg" />
+    <Content Include="Asset\img\reportLOGO.png" />
+    <Content Include="Asset\img\stfLogBACK.jpg" />
+    <Content Include="Asset\img\stuLogBACK.jpg" />
+    <Content Include="Asset\img\tarPic 1.jpg" />
+    <Content Include="Asset\img\tarPic 2.jpg" />
+    <Content Include="Asset\img\tarPic 3.jpg" />
+    <Content Include="Asset\img\tarPic 4.jpg" />
+    <Content Include="Asset\img\tarPic.jpg" />
+    <Content Include="Asset\img\tarucLOGO.png" />
+    <Content Include="Asset\img\TARUMT_LOGO.png" />
+    <Content Include="Asset\js\bootstrap.bundle.js" />
+    <Content Include="Asset\js\bootstrap.bundle.min.js" />
+    <Content Include="Asset\js\bootstrap.esm.js" />
+    <Content Include="Asset\js\bootstrap.esm.min.js" />
+    <Content Include="Asset\js\bootstrap.js" />
+    <Content Include="Asset\js\bootstrap.min.js" />
+    <Content Include="Asset\js\slideshow.js" />
+    <Content Include="Content\all.css" />
+    <Content Include="Content\all.min.css" />
+    <Content Include="Content\brands.css" />
+    <Content Include="Content\brands.min.css" />
+    <Content Include="Content\fontawesome.css" />
+    <Content Include="Content\fontawesome.min.css" />
+    <Content Include="Content\regular.css" />
+    <Content Include="Content\regular.min.css" />
+    <Content Include="Content\solid.css" />
+    <Content Include="Content\solid.min.css" />
+    <Content Include="Content\svg-with-js.css" />
+    <Content Include="Content\svg-with-js.min.css" />
+    <Content Include="Content\v4-shims.css" />
+    <Content Include="Content\v4-shims.min.css" />
+    <Content Include="ForgotPass.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Homepage.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="Scripts\fontawesome\all.js" />
+    <Content Include="Scripts\fontawesome\all.min.js" />
+    <Content Include="Scripts\fontawesome\brands.js" />
+    <Content Include="Scripts\fontawesome\brands.min.js" />
+    <Content Include="Scripts\fontawesome\conflict-detection.js" />
+    <Content Include="Scripts\fontawesome\conflict-detection.min.js" />
+    <Content Include="Scripts\fontawesome\fontawesome.js" />
+    <Content Include="Scripts\fontawesome\fontawesome.min.js" />
+    <Content Include="Scripts\fontawesome\regular.js" />
+    <Content Include="Scripts\fontawesome\regular.min.js" />
+    <Content Include="Scripts\fontawesome\solid.js" />
+    <Content Include="Scripts\fontawesome\solid.min.js" />
+    <Content Include="Scripts\fontawesome\v4-shims.js" />
+    <Content Include="Scripts\fontawesome\v4-shims.min.js" />
+    <Content Include="StaffForgotPass.aspx" />
+    <Content Include="StaffLogin.aspx" />
+    <Content Include="testDARK.css" />
+    <Content Include="testDARKMODE.aspx" />
+    <Content Include="Views\Admin\AddCourse.aspx" />
+    <Content Include="Views\Admin\AddHall.aspx" />
+    <Content Include="Views\Admin\AddStaff.aspx" />
+    <Content Include="Views\Admin\admin.css" />
+    <Content Include="Views\Admin\adminCSS.css" />
+    <Content Include="Views\Admin\AdminDashboard.aspx" />
+    <Content Include="Views\Admin\AdminProfile.aspx" />
+    <Content Include="Views\Admin\ExamHall.aspx" />
+    <Content Include="Views\Admin\Faculty.aspx" />
+    <Content Include="Views\Admin\Logout.aspx" />
+    <Content Include="Views\Admin\MasterViewPage.aspx" />
+    <Content Include="Views\Admin\Standard.aspx" />
+    <Content Include="Views\Admin\ViewClass.aspx" />
+    <Content Include="Views\Staff\AddClass.aspx" />
+    <Content Include="Views\Staff\AddStudent.aspx" />
+    <Content Include="Views\Staff\Attendance.aspx" />
+    <Content Include="Views\Staff\ChangePassword.aspx" />
+    <Content Include="Views\Staff\Dashboard.aspx" />
+    <Content Include="Views\Staff\ManageLeave.aspx" />
+    <Content Include="Views\Staff\staffCSS.css" />
+    <Content Include="Views\Staff\StaffLogout.aspx" />
+    <Content Include="Views\Staff\StaffProfile.aspx" />
+    <Content Include="Views\Staff\ViewCourse.aspx" />
+    <Content Include="Views\Student\ApplyLeave.aspx" />
+    <Content Include="Views\Student\ChangePassword.aspx" />
+    <Content Include="Views\Student\studentCSS.css" />
+    <Content Include="Views\Student\StudentLogout.aspx" />
+    <Content Include="Views\Student\StudentProfile.aspx" />
+    <Content Include="Views\Student\ViewAttendance.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminLogin.aspx.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminLogin.aspx.designer.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPass.aspx.cs">
+      <DependentUpon>ForgotPass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgotPass.aspx.designer.cs">
+      <DependentUpon>ForgotPass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Homepage.aspx.cs">
+      <DependentUpon>Homepage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Homepage.aspx.designer.cs">
+      <DependentUpon>Homepage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Function.cs" />
+    <Compile Include="Models\PrintHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StaffForgotPass.aspx.cs">
+      <DependentUpon>StaffForgotPass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffForgotPass.aspx.designer.cs">
+      <DependentUpon>StaffForgotPass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffLogin.aspx.cs">
+      <DependentUpon>StaffLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffLogin.aspx.designer.cs">
+      <DependentUpon>StaffLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="testDARKMODE.aspx.cs">
+      <DependentUpon>testDARKMODE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="testDARKMODE.aspx.designer.cs">
+      <DependentUpon>testDARKMODE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\AddCourse.aspx.cs">
+      <DependentUpon>AddCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\AddCourse.aspx.designer.cs">
+      <DependentUpon>AddCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\AddHall.aspx.cs">
+      <DependentUpon>AddHall.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\AddHall.aspx.designer.cs">
+      <DependentUpon>AddHall.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\AddStaff.aspx.cs">
+      <DependentUpon>AddStaff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\AddStaff.aspx.designer.cs">
+      <DependentUpon>AddStaff.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\AdminDashboard.aspx.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\AdminDashboard.aspx.designer.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\AdminProfile.aspx.cs">
+      <DependentUpon>AdminProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\AdminProfile.aspx.designer.cs">
+      <DependentUpon>AdminProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\ExamHall.aspx.cs">
+      <DependentUpon>ExamHall.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\ExamHall.aspx.designer.cs">
+      <DependentUpon>ExamHall.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Faculty.aspx.cs">
+      <DependentUpon>Faculty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Faculty.aspx.designer.cs">
+      <DependentUpon>Faculty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\MasterViewPage.aspx.cs">
+      <DependentUpon>MasterViewPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\MasterViewPage.aspx.designer.cs">
+      <DependentUpon>MasterViewPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Standard.aspx.cs">
+      <DependentUpon>Standard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Standard.aspx.designer.cs">
+      <DependentUpon>Standard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\ViewClass.aspx.cs">
+      <DependentUpon>ViewClass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\ViewClass.aspx.designer.cs">
+      <DependentUpon>ViewClass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Staff\AddClass.aspx.cs">
+      <DependentUpon>AddClass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Staff\AddClass.aspx.designer.cs">
+      <DependentUpon>AddClass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Staff\AddStudent.aspx.cs">
+      <DependentUpon>AddStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Staff\AddStudent.aspx.designer.cs">
+      <DependentUpon>AddStudent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Staff\Attendance.aspx.cs">
+      <DependentUpon>Attendance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Staff\Attendance.aspx.designer.cs">
+      <DependentUpon>Attendance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Staff\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Staff\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Staff\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Staff\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Staff\ManageLeave.aspx.cs">
+      <DependentUpon>ManageLeave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Staff\ManageLeave.aspx.designer.cs">
+      <DependentUpon>ManageLeave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Staff\Staff.Master.cs">
+      <DependentUpon>Staff.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Staff\Staff.Master.designer.cs">
+      <DependentUpon>Staff.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Staff\StaffLogout.aspx.cs">
+      <DependentUpon>StaffLogout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Staff\StaffLogout.aspx.designer.cs">
+      <DependentUpon>StaffLogout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Staff\StaffProfile.aspx.cs">
+      <DependentUpon>StaffProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Staff\StaffProfile.aspx.designer.cs">
+      <DependentUpon>StaffProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Staff\ViewCourse.aspx.cs">
+      <DependentUpon>ViewCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Staff\ViewCourse.aspx.designer.cs">
+      <DependentUpon>ViewCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Student\ApplyLeave.aspx.cs">
+      <DependentUpon>ApplyLeave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Student\ApplyLeave.aspx.designer.cs">
+      <DependentUpon>ApplyLeave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Student\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Student\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Student\Student.Master.cs">
+      <DependentUpon>Student.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Student\Student.Master.designer.cs">
+      <DependentUpon>Student.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Student\StudentLogout.aspx.cs">
+      <DependentUpon>StudentLogout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Student\StudentLogout.aspx.designer.cs">
+      <DependentUpon>StudentLogout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Student\StudentProfile.aspx.cs">
+      <DependentUpon>StudentProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Student\StudentProfile.aspx.designer.cs">
+      <DependentUpon>StudentProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Student\ViewAttendance.aspx.cs">
+      <DependentUpon>ViewAttendance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Student\ViewAttendance.aspx.designer.cs">
+      <DependentUpon>ViewAttendance.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Asset\css\bootstrap-grid.css.map" />
+    <Content Include="Asset\css\bootstrap-grid.min.css.map" />
+    <Content Include="Asset\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="Asset\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Asset\css\bootstrap-reboot.css.map" />
+    <Content Include="Asset\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Asset\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Asset\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Asset\css\bootstrap-utilities.css.map" />
+    <Content Include="Asset\css\bootstrap-utilities.min.css.map" />
+    <Content Include="Asset\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Asset\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Asset\css\bootstrap.css.map" />
+    <Content Include="Asset\css\bootstrap.min.css.map" />
+    <Content Include="Asset\css\bootstrap.rtl.css.map" />
+    <Content Include="Asset\css\bootstrap.rtl.min.css.map" />
+    <Content Include="Asset\js\bootstrap.bundle.js.map" />
+    <Content Include="Asset\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Asset\js\bootstrap.esm.js.map" />
+    <Content Include="Asset\js\bootstrap.esm.min.js.map" />
+    <Content Include="Asset\js\bootstrap.js.map" />
+    <Content Include="Asset\js\bootstrap.min.js.map" />
+    <None Include="packages.config" />
+    <Content Include="Views\Admin\Admin.Master" />
+    <Content Include="Views\Student\Student.Master" />
+    <Content Include="Views\Staff\Staff.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="webfonts\fa-brands-400.svg" />
+    <Content Include="webfonts\fa-regular-400.svg" />
+    <Content Include="webfonts\fa-solid-900.svg" />
+    <Content Include="webfonts\fa-solid-900.woff2" />
+    <Content Include="webfonts\fa-solid-900.woff" />
+    <Content Include="webfonts\fa-solid-900.ttf" />
+    <Content Include="webfonts\fa-solid-900.eot" />
+    <Content Include="webfonts\fa-regular-400.woff2" />
+    <Content Include="webfonts\fa-regular-400.woff" />
+    <Content Include="webfonts\fa-regular-400.ttf" />
+    <Content Include="webfonts\fa-regular-400.eot" />
+    <Content Include="webfonts\fa-brands-400.woff2" />
+    <Content Include="webfonts\fa-brands-400.woff" />
+    <Content Include="webfonts\fa-brands-400.ttf" />
+    <Content Include="webfonts\fa-brands-400.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="StaffPhoto\" />
+    <Folder Include="StudentPhoto\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56189</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44313/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
